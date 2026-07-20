@@ -100,7 +100,7 @@ function mostrarMensajeLive2D() {
 
     "Sistema oculto activado.",
 
-    "Hola César... esperaba que tarde o temprano aparecieras.",
+    "Hola Amiguis... esperaba que tarde o temprano aparecieras.",
 
     "No todos descubren este Easter Egg.",
 
