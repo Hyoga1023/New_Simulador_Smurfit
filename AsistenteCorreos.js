@@ -77,7 +77,7 @@ Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 Recuerda que:
 * El saldo ordinario exento lo puede retirar una sola vez por año calendario.
 * El saldo extraordinario lo puede retirar una vez por semestre.
-* Realizar un retiro parcial no afecta tu permanencia en el fondo.
+* Realizar un retiro parcial no afecta su permanencia en el fondo.
 
 Si desea realizar un retiro parcial, por favor confirme su decisión indicando el valor a retirar y le enviaré el formato con el cual se solicita la autorización a la empresa.
 
