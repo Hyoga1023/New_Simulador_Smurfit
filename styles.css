@@ -796,6 +796,46 @@ input.input[type="text"] {
   background-color: #061a2f;
 }
 
+
+/* ==========================================
+   BOTÓN VOLVER ARRIBA
+   ========================================== */
+.btn-volver-arriba {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: var(--primary, #14487D);
+    color: #ffffff;
+    border: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-volver-arriba:hover {
+    background-color: var(--primary-dark, #0B2E52);
+    transform: translateY(-2px);
+}
+
+/* Clase activa cuando el usuario hace scroll hacia abajo */
+.btn-volver-arriba.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
 /* ==========================================================================
    FOOTER
    ========================================================================== */

@@ -218,3 +218,26 @@ async function generarPDF() {
     }
 
 });
+// ============================
+    // BOTÓN VOLVER ARRIBA
+    // ============================
+    const btnVolverArriba = document.getElementById("btn-volver-arriba");
+
+    if (btnVolverArriba) {
+        // Muestra u oculta el botón dependiendo de cuánto se desplaza la página
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 300) {
+                btnVolverArriba.classList.add("visible");
+            } else {
+                btnVolverArriba.classList.remove("visible");
+            }
+        });
+
+        // Al hacer clic, desplaza la pantalla suavemente hasta arriba
+        btnVolverArriba.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
