@@ -97,15 +97,14 @@ Adjunto envío la simulación donde podemos evidenciar lo siguiente:
  
 * Para retiro parcial, actualmente tiene un saldo de ${formatCurrency(saldoTotalParcial)}, de los cuales están exentos hasta ${formatCurrency(saldoExento)}. Para el resto, es decir ${formatCurrency(saldoConRetencion)}, aplican las retenciones correspondientes según el tipo de aporte.
  
-* Para retiro total, actualmente tiene un saldo de ${formatCurrency(saldoTotal)}, valor que incluye la retención y penalidad aplicables.
+* Para retiro total, actualmente tiene un saldo de ${formatCurrency(saldoTotal)}, valor que incluye la retención y penalidad aplicables descritos a continuación:
  
-Antes de continuar, ten en cuenta que:
 * Quedarás penalizado(a) por 1 año, durante el cual no podrás ahorrar en el Fondo.
 * Si llevas menos de 10 años ahorrando en el Fondo, perderás los aportes no consolidados que la empresa ha realizado en tu nombre.
 * El saldo consolidado a nombre de la empresa es con fines pensionales y solo se puede retirar al momento de pensionarte.
 * El valor correspondiente a acciones solo se puede retirar una vez finalice tu relación laboral con la compañía, si la empresa lo autoriza.
  
-Si desea realizar este retiro, por favor confirme su decisión y le enviaré el formato con el cual se solicita la autorización a la empresa.
+Si desea realizar retiro parcial o total, por favor confirme su decisión (Para retiro parcial requiero el valor a retirar) y le enviaré el formato con el cual se solicita la autorización a la empresa.
  
 Quedo atento(a) a cualquier duda que tengas al respecto.
  
