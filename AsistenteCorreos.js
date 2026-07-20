@@ -24,6 +24,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // ============================
     // DATOS DE APOYO
     // ============================
+    function obtenerSaludoHora() {
+        const hora = new Date().getHours();
+        return hora < 12 ? "Buenos días" : "Buenas tardes";
+    }
+
     function obtenerNombreCliente() {
         const inputNombre = document.getElementById("nombre");
         const nombre = inputNombre && inputNombre.value.trim();
@@ -57,12 +62,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const datos = obtenerDatosSimulacion();
         if (!datos) return null;
 
+        const saludo = obtenerSaludoHora();
         const nombre = obtenerNombreCliente();
         const saldoTotalParcial = datos.avaoAvaeApaeAcae2; // "Total Parcial Disponible"
         const saldoExento = datos.avaoExento;               // Ordinarios - Saldo Exento
         const saldoConRetencion = saldoTotalParcial - saldoExento;
 
-        return `Señor(a) ${nombre}, espero se encuentre bien.
+        return `${saludo} Señor(a) ${nombre}, espero se encuentre bien.
 
 Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 
@@ -84,30 +90,31 @@ Cordial saludo.`;
     function plantillaRetiroTotal() {
         const datos = obtenerDatosSimulacion();
         if (!datos) return null;
- 
+
+        const saludo = obtenerSaludoHora();
         const nombre = obtenerNombreCliente();
         const saldoTotalParcial = datos.avaoAvaeApaeAcae2; // "Total Parcial Disponible"
         const saldoExento = datos.avaoExento;               // Ordinarios - Saldo Exento
         const saldoConRetencion = saldoTotalParcial - saldoExento;
         const saldoTotal = datos.totalAvaoAvaeApaeAcae;     // "Saldo con Retención y Penalidad"
- 
-        return `Señor(a) ${nombre}, espero se encuentre bien.
- 
+
+        return `${saludo} Señor(a) ${nombre}, espero se encuentre bien.
+
 Adjunto envío la simulación donde podemos evidenciar lo siguiente:
- 
+
 * Para retiro parcial, actualmente tiene un saldo de ${formatCurrency(saldoTotalParcial)}, de los cuales están exentos hasta ${formatCurrency(saldoExento)}. Para el resto, es decir ${formatCurrency(saldoConRetencion)}, aplican las retenciones correspondientes según el tipo de aporte.
- 
+
 * Para retiro total, actualmente tiene un saldo de ${formatCurrency(saldoTotal)}, valor que incluye la retención y penalidad aplicables descritos a continuación:
- 
+
 * Quedarás penalizado(a) por 1 año, durante el cual no podrás ahorrar en el Fondo.
 * Si llevas menos de 10 años ahorrando en el Fondo, perderás los aportes no consolidados que la empresa ha realizado en tu nombre.
 * El saldo consolidado a nombre de la empresa es con fines pensionales y solo se puede retirar al momento de pensionarte.
 * El valor correspondiente a acciones solo se puede retirar una vez finalice tu relación laboral con la compañía, si la empresa lo autoriza.
- 
+
 Si desea realizar retiro parcial o total, por favor confirme su decisión (Para retiro parcial requiero el valor a retirar) y le enviaré el formato con el cual se solicita la autorización a la empresa.
- 
+
 Quedo atento(a) a cualquier duda que tengas al respecto.
- 
+
 Cordial saludo.`;
     }
 
