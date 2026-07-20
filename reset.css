@@ -1,0 +1,39 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Opcionalmente, configura el cuerpo para que tenga estilos mínimos */
+  body {
+    font-family: Arial, sans-serif; /* Ajusta esto según tu preferencia */
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+  }
+  
+  /* Elimina decoraciones en enlaces */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Estilos básicos para listas */
+  ul, ol {
+    list-style: none;
+  }
+  
+  /* Resetea tablas */
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  /* Configura imágenes y elementos multimedia */
+  img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="./img/SK3.IR-4675be47.png" type="Logo_Smurfit">
+    <title>Simulador Smurfit</title>
+</head>
+
+<body>
+    <main>
+        <section>
+            <section class="bloque_superior">
+                <div class="titulo_principal">
+                    <h1>Detalle de saldos y condiciones de retiro plan institucional Smurfit</h1>
+                </div>
+                <!------------------------------------------------------------------------>
+                <div class="Logo">
+                    <img src="img/Logo.png" alt="Logo Smurfit">
+                </div>
+                <div class="header-title2">
+                    <a href="https://www.proteccion.com/contenidos/personas/" target="_blank" class="logo-link">
+                        <h2>Protección</h2>
+                    </a>
+                    <div class="bloque_logo">
+                        <p>Una empresa</p>
+                        <img src="img/sura-logo-azul.png" alt="Logo_sura">
+                    </div>
+                </div>
+                
+            </section>
+            <!-- Bloque inferior con datos del cliente -->
+            <section class="bloque_inferior">
+                <div class="datos_cliente1" id="datos_cliente1">
+                    <div class="datos_cliente_span">
+                        <span id="cedula-mostrar"></span>
+                        <span id="nombre-mostrar"></span>
+                    </div>
+                    <div class="fec_gen">
+                        <h3>Fecha de Generación:</h3>
+                        <span id="fecha-mostrar"></span>
+                    </div>
+                    <div class="fec_gen">
+                        <h3>Antiguedad de la Cuenta:</h3>
+                        <span id="fecha_antiguedad-mostrar"></span>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <section class="contenedor_general">
+    <section class="contenedor">
+
+        <!-- Columna Izquierda -->
+        <section class="columna_izquierda">
+
+            <div class="valores_iniciales">
+
+                <h2 class="titulos_columnas">Disponible para retiro parcial</h2>
+
+                <div>
+                    <h4>Ordinarios</h4>
+
+                    <div class="conjunto">
+                        <span class="valores_calculos" id="avao_exento"></span>
+                        <h3 class="etiquetas">Saldo Exento</h3>
+                    </div>
+                </div>
+
+                <div>
+                    <h4>Extraordinarios</h4>
+
+                    <div class="conjunto">
+                        <span class="valores_calculos" id="avae_exento"></span>
+                        <h3 class="etiquetas">Saldo Exento</h3>
+                    </div>
+
+                    <div class="conjunto">
+                        <span class="valores_calculos" id="avae_con_retención"></span>
+                        <h3 class="etiquetas">Saldo con Retención</h3>
+                    </div>
+
+                    <div class="conjunto">
+                        <span class="valores_calculos" id="avae_sin_retención"></span>
+                        <h3 class="etiquetas">Saldo sin Retención</h3>
+                    </div>
+
+                    <h4>Total Parcial Disponible</h4>
+
+                    <div class="conjunto">
+                        <span class="valores_calculos" id="avao_avae_apae_acae"></span>
+                        <h3 class="etiquetas">Saldo Aportes Mixtos</h3>
+                    </div>
+                </div>
+
+                <section class="parrafo_column_izquierda">
+                    <div class="parrafo_izquierdo">
+                        <p class="texto_parrafo">
+                            Si vas a realizar un retiro parcial, ten en cuenta las siguientes consideraciones:
+                            <br><br>
+
+                            <strong>*</strong> El saldo ordinario que ya tienes disponible, lo puedes retirar una sola vez por año calendario (Estos son los aportes exentos, es decir, los que tuvieron más de 5 años en el fondo si fueron consignados antes de diciembre de 2012. En cuanto a los aportes posteriores a enero de 2013, según la Ley 1607 de 2012 que reformó el sistema tributario, el beneficio tributario en los Fondos de Pensiones Voluntarias se alcanza cuando cada aporte tenga una antigüedad mínima de 10 años).
+
+                            <br><br>
+
+                            <strong>*</strong> El saldo extraordinario lo puedes retirar una vez por semestre.
+
+                            <br><br>
+
+                            <strong>*</strong> Al hacer un retiro parcial no afectas tu permanencia en el fondo y vas a seguir ahorrando <strong>para construir tus sueños</strong>.
+                        </p>
+                    </div>
+                </section>
+
+            </div>
+
+        </section>
+
+        <!-- Columna Derecha -->
+        <section class="columna_derecha">
+
+            <h2 class="titulos_columnas">Disponible para retiro total</h2>
+
+            <div class="conjunto">
+                <span class="valores_calculos" id="total_avao_avae_apae_acae"></span>
+                <h3 class="etiquetas">Saldo con Retención y Penalidad</h3>
+            </div>
+
+            <div class="parrafo_derecho">
+                <p class="texto_parrafo">
+
+                    Si vas a realizar un retiro total, ten en cuenta las siguientes consideraciones:
+
+                    <br><br>
+
+                    <strong>*</strong> Quedarás <strong>penalizado</strong> por 1 año, durante los cuales no podrás ahorrar en el Fondo Smurfit.
+
+                    <br><br>
+
+                    <strong>*</strong> Si llevas menos de 10 años ahorrando en el Fondo, perderás los aportes que la empresa ha realizado en tu nombre (valor <strong>no consolidado</strong>).
+
+                    <br><br>
+
+                    <strong>*</strong> El saldo que la empresa ha dado en tu nombre y que se encuentra <strong>consolidado</strong>, es con fines pensionales y solo lo podrás retirar cuando estés pensionado.
+
+                    <br><br>
+
+                    <strong>*</strong> El valor correspondiente a las <strong>acciones</strong> solo lo puedes retirar una vez haya terminado la relación laboral con la compañía.
+                    siempre y cuando la empresa considere que tienes derecho a recibirlas.
+
+                    <br><br>
+
+                    <strong style="color:#e21d0f">
+                        *** Consulta con el asesor Inhouse antes de realizar este retiro. ***
+                    </strong>
+
+                </p>
+            </div>
+            <div class="imagen">
+                <img src="img/transformamos.png" alt="ejecutivos_revisando_portatil">
+            </div>
+
+        </section>
+
+    </section>
+</section>
+           
+        </section>
+        <section class="valores_inferior">
+            <section>
+                <div class="container_agrupaciones">
+                    <div class="agrupación">
+                        <div class="aportes">
+                            <h3>Aportes realizados por el afiliado</h3>
+                            <span class="valores_calculos" id="suma_avao_avae"></span>
+                        </div>
+                        <div class="agrupación2">
+                            <div class="agrupación3">
+                                <h3>Ordinarios</h3>
+                                <span class="valores_calculos" id="total_avao"></span>
+                            </div>
+                            <div class="agrupación3">
+                                <h3>Extraordinarios</h3>
+                                <span class="valores_calculos" id="total_avae"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container_agrupaciones2">                   
+                    <div class="agrupación">
+                        <div class="aportes">
+                            <h3>Aportes realizados por el empleador</h3>
+                            <span class="valores_calculos" id="suma_acao_aveo"></span>
+                        </div>
+                        <div class="agrupación2">
+                            <div class="agrupación3">
+                                <h3>Consolidado</h3>
+                                <span class="valores_calculos" id="acao"></span>
+                            </div>
+                            <div class="agrupación3">
+                                <h3>No Consolidado</h3>
+                                <span class="valores_calculos" id="aveo"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="grupo3">
+                <div class="container_grupo3">
+                    <div class="titulo_ben">
+                        <h3>BENEFICIOS EXTRAORDINARIOS</h3>
+                    </div>
+                    <div class="grupo_beneficios">
+                        <div class="agrupación_2">
+                            <div class="alinear_derecha">
+                                <span class="valores_calculos" id="avee"></span>
+                                <h3>Acciones</h3>
+                            </div>
+                        </div>
+                        <div class="alinear_derecha">
+                            <span class="valores_calculos" id="apae"></span>
+                            <h3>Perseverancia</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="container_grupo3_2">
+                    <div class="total_cuenta">
+                        <h3>Total en cuenta</h3>
+                    </div>
+                    <div class="contenedor_end">
+                       <span class="valores_calculos" id="suma_total"></span>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+    <section class="pdf">
+        <button class="boton" id="generar_pdf">Generar PDF</button>
+    </section>
+    <section class="valores_inpud">
+        <section class="datos_cliente">
+            <h2>Datos del cliente</h2>
+            <div>
+                <label for="cedula">Número de documento</label>
+                <input class="input" id="cedula" type="number" placeholder="Número de documento">
+            </div>
+            <div>
+                <label for="nombre">Nombre del afiliado</label>
+                <input class="input" id="nombre" type="text" placeholder="Nombre del afiliado">
+            </div>
+            <div>
+                <label for="fecha">Fecha de generación de la simulación</label>
+                <input class="input" id="fecha" type="date" placeholder="fecha">
+            </div>
+            <div>
+                <label for="fecha_antiguedad">Fecha de antigüedad de la cuenta</label>
+                <input class="input" id="fecha_antiguedad" type="date" placeholder="fecha">
+            </div>
+        </section>
+        <section class="tipo_aportes">
+            <h2>Valores de la cuenta</h2>
+            <p style="font-size: 12px; color: #e21d0f;"><strong>* Estos campos solo aceptan números sin puntos, ni
+                    comas o caracteres especiales</strong></p>
+            <div>
+                <label for="span-avao_exento">AVAO exento</label>
+                <input id="span-avao_exento" type="number" placeholder="AVAO exento">
+            </div>
+            <div>
+                <label for="span-avao_con_retencion">AVAO con retención</label>
+                <input id="span-avao_con_retencion" type="number" placeholder="AVAO con retención">
+            </div>
+            <div>
+                <label for="span-avao_sin_retencion">AVAO sin retención</label>
+                <input id="span-avao_sin_retencion" type="number" placeholder="AVAO sin retención">
+            </div>
+            <div>
+                <label for="span-avae_exento">AVAE exento</label>
+                <input id="span-avae_exento" type="number" placeholder="AVAE exento">
+            </div>
+            <div>
+                <label for="span-avae_con_retención">AVAE con retención</label>
+                <input id="span-avae_con_retención" type="number" placeholder="AVAE con retención">
+            </div>
+            <div>
+                <label for="span-avae_sin_retención">AVAE sin retención</label>
+                <input id="span-avae_sin_retención" type="number" placeholder="AVAE sin retención">
+            </div>
+            <div>
+                <label for="span-aveo">AVEO</label>
+                <input id="span-aveo" type="number" placeholder="AVEO">
+            </div>
+            <div>
+                <label for="span-avee">AVEE</label>
+                <input id="span-avee" type="number" placeholder="AVEE">
+            </div>
+            <div>
+                <label for="span-apae">APAE</label>
+                <input id="span-apae" type="number" placeholder="APAE">
+            </div>
+            <div>
+                <label for="span-acae">ACAE</label>
+                <input id="span-acae" type="number" placeholder="ACAE">
+            </div>
+            <div>
+                <label for="span-acao">ACAO</label>
+                <input id="span-acao" type="number" placeholder="ACAO">
+            </div>
+        </section>
+    </section>
+    <section class="Botones">
+            <section class="acciones">
+                <button class="boton" id="procesar-simulacion">Procesar Simulación</button>
+            </section>
+    </section>
+
+    <footer>
+            <img class="logo_desarrollador" src="img/logo_letra_blanca_sin_fondo.png" alt="Logo Desarrollador">
+            <p>© 2026 Simulador Smurfit. Todos los derechos reservados.</p>
+    </footer>
+    <script src="Simulacion.js"></script>
+    <script src="Interactividad.js"></script>
+    <script src="AsistenteCorreos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+
+</html>
