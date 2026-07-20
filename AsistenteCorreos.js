@@ -75,13 +75,13 @@ Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 * Para retiro parcial, actualmente tiene un saldo de ${formatCurrency(saldoTotalParcial)}, de los cuales están exentos hasta ${formatCurrency(saldoExento)}. Para el resto, es decir ${formatCurrency(saldoConRetencion)}, aplican las retenciones correspondientes según el tipo de aporte.
 
 Recuerda que:
-* El saldo ordinario exento lo puedes retirar una sola vez por año calendario.
-* El saldo extraordinario lo puedes retirar una vez por semestre.
+* El saldo ordinario exento lo puede retirar una sola vez por año calendario.
+* El saldo extraordinario lo puede retirar una vez por semestre.
 * Realizar un retiro parcial no afecta tu permanencia en el fondo.
 
 Si desea realizar un retiro parcial, por favor confirme su decisión indicando el valor a retirar y le enviaré el formato con el cual se solicita la autorización a la empresa.
 
-Quedo atento(a) a cualquier duda que tengas al respecto.
+Quedo atento(a) a cualquier duda que tenga al respecto.
 
 Cordial saludo.`;
     }
@@ -106,14 +106,14 @@ Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 
 * Para retiro total, actualmente tiene un saldo de ${formatCurrency(saldoTotal)}, valor que incluye la retención y penalidad aplicables descritos a continuación:
 
-* Quedarás penalizado(a) por 1 año, durante el cual no podrás ahorrar en el Fondo.
-* Si llevas menos de 10 años ahorrando en el Fondo, perderás los aportes no consolidados que la empresa ha realizado en tu nombre.
+* Quedará penalizado(a) por 1 año, durante el cual no podrá ahorrar en el Fondo.
+* Si lleva menos de 10 años ahorrando en el Fondo, perderá los aportes no consolidados que la empresa ha realizado en su nombre.
 * El saldo consolidado a nombre de la empresa es con fines pensionales y solo se puede retirar al momento de pensionarte.
 * El valor correspondiente a acciones solo se puede retirar una vez finalice tu relación laboral con la compañía, si la empresa lo autoriza.
 
 Si desea realizar retiro parcial o total, por favor confirme su decisión (Para retiro parcial requiero el valor a retirar) y le enviaré el formato con el cual se solicita la autorización a la empresa.
 
-Quedo atento(a) a cualquier duda que tengas al respecto.
+Quedo atento(a) a cualquier duda que tenga al respecto.
 
 Cordial saludo.`;
     }

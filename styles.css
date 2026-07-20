@@ -12,7 +12,7 @@
   --card: #FFFFFF;
   --line: #d7dbdf;
   --line-strong: #9ca0a3;
-  --amber: #B8842E;
+  --amber: #a37325;
   --amber-bg: #FBF3E7;
   --rojo: #E21D0F;
 
@@ -727,7 +727,7 @@ input.input[type="text"] {
 }
 
 .tipo_aportes p[style] {
-  color: var(--rojo) !important;
+  color: var(--amber) !important;
   background-color: var(--amber-bg);
   padding: 10px 12px;
   border-radius: 8px;
