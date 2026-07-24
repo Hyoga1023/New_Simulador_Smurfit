@@ -35,7 +35,6 @@ Todo el procesamiento se realiza del lado del cliente (Frontend), por lo que no 
 
 # Vista General
 
-```
 <p align="center">
     <img src="img/Captura1.png" width="800">
 </p>
@@ -43,7 +42,6 @@ Todo el procesamiento se realiza del lado del cliente (Frontend), por lo que no 
 <p align="center">
     <img src="img/Captura2.png" width="800">
 </p>
-```
 
 ---
 
