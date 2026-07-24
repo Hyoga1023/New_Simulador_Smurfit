@@ -168,6 +168,6 @@ https://github.com/Hyoga1023
 
 # Licencia
 
-Este proyecto fue desarrollado con fines de apoyo operativo y educativos.
+Este proyecto fue desarrollado con fines de apoyo operativo.
 
 Licencia MIT.
