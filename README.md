@@ -1,4 +1,4 @@
-# 📊 Simulador de Retiro Plan Institucional Smurfit
+# Simulador de Retiro Plan Institucional Smurfit
 
 ![Estado](https://img.shields.io/badge/Estado-Activo-success)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
