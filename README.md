@@ -35,13 +35,13 @@ Todo el procesamiento se realiza del lado del cliente (Frontend), por lo que no 
 
 # Vista General
 
-> Aquí puedes agregar posteriormente algunas capturas del sistema.
+<p align="center">
+    <img src="img/Captura1.png" width="800">
+</p>
 
-```
-img/
-    captura1.png
-    captura2.png
-```
+<p align="center">
+    <img src="img/Captura2.png" width="800">
+</p>
 
 ---
 
