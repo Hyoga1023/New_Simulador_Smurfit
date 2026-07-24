@@ -72,9 +72,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 
-* Para retiro parcial, actualmente tiene un saldo de ${formatCurrency(saldoTotalParcial)}, de los cuales están exentos hasta ${formatCurrency(saldoExento)}. Para el resto, es decir ${formatCurrency(saldoConRetencion)}, aplican las retenciones correspondientes según el tipo de aporte.
+- Para retiro parcial, actualmente tiene un saldo de ${formatCurrency(saldoTotalParcial)}, de los cuales están exentos hasta ${formatCurrency(saldoExento)}. Para el resto, es decir ${formatCurrency(saldoConRetencion)}, aplican las retenciones correspondientes según el tipo de aporte.
 
 Recuerda que:
+
 * El saldo ordinario exento lo puede retirar una sola vez por año calendario.
 * El saldo extraordinario lo puede retirar una vez por semestre.
 * Realizar un retiro parcial no afecta su permanencia en el fondo.
@@ -96,20 +97,21 @@ Cordial saludo.`;
         const saldoTotalParcial = datos.avaoAvaeApaeAcae2; // "Total Parcial Disponible"
         const saldoExento = datos.avaoExento;               // Ordinarios - Saldo Exento
         const saldoConRetencion = saldoTotalParcial - saldoExento;
+        const aveo = datos.aveo; // Valor no consolidado
         const saldoTotal = datos.totalAvaoAvaeApaeAcae;     // "Saldo con Retención y Penalidad"
 
         return `${saludo} Señor(a) ${nombre}, espero se encuentre bien.
 
 Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 
-* Para retiro parcial, actualmente tiene un saldo de ${formatCurrency(saldoTotalParcial)}, de los cuales están exentos hasta ${formatCurrency(saldoExento)}. Para el resto, es decir ${formatCurrency(saldoConRetencion)}, aplican las retenciones correspondientes según el tipo de aporte.
+- Para retiro parcial, actualmente tiene un saldo de ${formatCurrency(saldoTotalParcial)}, de los cuales están exentos hasta ${formatCurrency(saldoExento)}. Para el resto, es decir ${formatCurrency(saldoConRetencion)}, aplican las retenciones correspondientes según el tipo de aporte.
 
-* Para retiro total, actualmente tiene un saldo de ${formatCurrency(saldoTotal)}, valor que incluye la retención y penalidad aplicables descritos a continuación:
+- Para retiro total, actualmente tiene un saldo de ${formatCurrency(saldoTotal)}, valor que incluye la retención y penalidad aplicables descritos a continuación:
 
 * Quedará penalizado(a) por 1 año, durante el cual no podrá ahorrar en el Fondo.
-* Si lleva menos de 10 años ahorrando en el Fondo, perderá los aportes no consolidados que la empresa ha realizado en su nombre.
+* Si lleva menos de 10 años ahorrando en el Fondo, perderá los aportes no consolidados que la empresa ha realizado en su nombre y que actualmente asciende a ${formatCurrency(aveo)}.
 * El saldo consolidado a nombre de la empresa es con fines pensionales y solo se puede retirar al momento de pensionarte.
-* El valor correspondiente a acciones solo se puede retirar una vez finalice tu relación laboral con la compañía, si la empresa lo autoriza.
+* El valor correspondiente a acciones solo se puede retirar una vez finalice su relación laboral con la compañía, si la empresa lo autoriza.
 
 Si desea realizar retiro parcial o total, por favor confirme su decisión (Para retiro parcial requiero el valor a retirar) y le enviaré el formato con el cual se solicita la autorización a la empresa.
 
@@ -118,10 +120,42 @@ Quedo atento(a) a cualquier duda que tenga al respecto.
 Cordial saludo.`;
     }
 
+// ---- CORREO AFILIADO MENOS DE 10 AÑOS ----
+function plantillaCorreAfi10A() {
+    const datos = obtenerDatosSimulacion();
+    if (!datos) return null;
+
+    const saludo = obtenerSaludoHora();
+    const nombre = obtenerNombreCliente();
+
+    const saldoTotal = datos.totalAvaoAvaeApaeAcae;
+    const aveo = datos.aveo; // Valor no consolidado
+
+    return `${saludo} Señor(a) ${nombre}, espero se encuentre bien.
+
+Adjunto envío la simulación donde podemos evidenciar lo siguiente:
+
+- Para retiro parcial, actualmente no presenta saldo toda vez que aún no se cumple el tiempo que por políticas le permite acceder a él.
+
+- Para retiro total, actualmente tiene un saldo de ${formatCurrency(saldoTotal)}, valor que incluye la retención y penalidad aplicables descritos a continuación:
+
+* Quedará penalizado(a) por 1 año, durante el cual no podrá ahorrar en el Fondo.
+* Si lleva menos de 10 años ahorrando en el Fondo, perderá los aportes no consolidados que la empresa ha realizado en su nombre y que actualmente asciende a ${formatCurrency(aveo)}.
+* El saldo consolidado a nombre de la empresa es con fines pensionales y solo se puede retirar al momento de pensionarte.
+* El valor correspondiente a acciones solo se puede retirar una vez finalice su relación laboral con la compañía, si la empresa lo autoriza.
+
+Si desea realizar retiro parcial o total, por favor confirme su decisión (Para retiro parcial requiero el valor a retirar) y le enviaré el formato con el cual se solicita la autorización a la empresa.
+
+Quedo atento(a) a cualquier duda que tenga al respecto.
+
+Cordial saludo.`;
+}
+
     // Registro central de plantillas disponibles. Agregar nuevas aquí.
     const plantillas = {
         parcial: { etiqueta: "Correo Retiro Parcial", generar: plantillaRetiroParcial },
-        total: { etiqueta: "Correo Retiro Total", generar: plantillaRetiroTotal }
+        total: { etiqueta: "Correo Retiro Total", generar: plantillaRetiroTotal },
+        correAfi10A: { etiqueta: "Correo Afi -10 A", generar: plantillaCorreAfi10A }
     };
 
     // ==========================================================================

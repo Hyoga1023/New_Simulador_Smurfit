@@ -35,7 +35,7 @@ async function generarPDF() {
         tempContainer.style.top = "0";
         tempContainer.style.background = getComputedStyle(document.body).backgroundColor;
         tempContainer.style.width = PDF_WIDTH + "px";
-        tempContainer.style.paddingBottom = "150px";
+        tempContainer.style.paddingBottom = "20px";
         tempContainer.style.boxSizing = "border-box";
         tempContainer.classList.add("pdf-render-mode");
 
