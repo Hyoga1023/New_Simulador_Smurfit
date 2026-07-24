@@ -6,7 +6,7 @@
 ![CSS3](https://img.shields.io/badge/CSS3-blue)
 ![Licencia](https://img.shields.io/badge/Licencia-MIT-green)
 
-## 📖 Descripción
+## Descripción
 
 Aplicación web desarrollada para apoyar la asesoría a los afiliados del **Plan Institucional Smurfit** administrado por **Protección S.A.**
 
@@ -16,7 +16,7 @@ Todo el procesamiento se realiza del lado del cliente (Frontend), por lo que no 
 
 ---
 
-# ✨ Características
+# Características
 
 - Cálculo automático de saldos para retiro parcial.
 - Cálculo automático de saldos para retiro total.
@@ -33,7 +33,7 @@ Todo el procesamiento se realiza del lado del cliente (Frontend), por lo que no 
 
 ---
 
-# 📸 Vista General
+# Vista General
 
 > Aquí puedes agregar posteriormente algunas capturas del sistema.
 
@@ -45,7 +45,7 @@ img/
 
 ---
 
-# 🧮 Información calculada
+# Información calculada
 
 El simulador calcula automáticamente:
 
@@ -63,7 +63,7 @@ El simulador calcula automáticamente:
 
 ---
 
-# 📄 Generación de PDF
+# Generación de PDF
 
 El sistema genera un PDF profesional que contiene:
 
@@ -83,7 +83,7 @@ El PDF se genera completamente en el navegador utilizando:
 
 ---
 
-# 📧 Asistente de Correos
+# Asistente de Correos
 
 El sistema incluye un generador automático de respuestas para el asesor.
 
@@ -97,7 +97,7 @@ Las plantillas utilizan los mismos valores calculados por el simulador para evit
 
 ---
 
-# 🛠 Tecnologías utilizadas
+# Tecnologías utilizadas
 
 - HTML5
 - CSS3
@@ -111,10 +111,10 @@ Las plantillas utilizan los mismos valores calculados por el simulador para evit
 
 ---
 
-# 📁 Estructura del proyecto
+# Estructura del proyecto
 
 ```
-📦 Simulador-Smurfit
+Simulador-Smurfit
 │
 ├── index.html
 ├── styles.css
@@ -132,17 +132,11 @@ Las plantillas utilizan los mismos valores calculados por el simulador para evit
 
 ---
 
-# 🚀 Cómo ejecutar
+# Cómo ejecutar
 
 No requiere instalación.
 
-1. Clonar el repositorio.
-
-```bash
-git clone https://github.com/TU_USUARIO/Simulador-Smurfit.git
-```
-
-2. Abrir el archivo
+1. Abrir el archivo
 
 ```
 index.html
@@ -152,13 +146,13 @@ en cualquier navegador moderno.
 
 ---
 
-# 🎯 Objetivo
+# Objetivo
 
 Reducir el tiempo de atención del asesor, disminuir errores manuales y estandarizar la información entregada a los afiliados mediante una herramienta rápida, clara y confiable.
 
 ---
 
-# 👨‍💻 Autor
+# Autor
 
 **César Augusto Martínez Arce**
 
@@ -172,7 +166,7 @@ https://github.com/Hyoga1023
 
 ---
 
-# 📄 Licencia
+# Licencia
 
 Este proyecto fue desarrollado con fines de apoyo operativo y educativos.
 
