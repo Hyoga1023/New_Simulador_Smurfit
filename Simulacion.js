@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Elementos de entrada de datos del cliente
     const clientInputs = {
         cedula: document.getElementById('cedula'),
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fecha_antiguedad: document.getElementById('fecha_antiguedad-mostrar')
     };
 
-    // Inputs de valores
+    // Inputs de valores (APAE eliminado)
     const valueInputs = {
         avaoExento: document.getElementById('span-avao_exento'),
         avaoConRetencion: document.getElementById('span-avao_con_retencion'),
@@ -25,12 +25,11 @@ document.addEventListener('DOMContentLoaded', function() {
         avaeSinRetencion: document.getElementById('span-avae_sin_retención'),
         aveo: document.getElementById('span-aveo'),
         avee: document.getElementById('span-avee'),
-        apae: document.getElementById('span-apae'),
         acae: document.getElementById('span-acae'),
         acao: document.getElementById('span-acao')
     };
 
-    // Spans para mostrar resultados
+    // Spans para mostrar resultados (APAE eliminado)
     const resultSpans = {
         avaoExento: document.getElementById('avao_exento'),
         avaeExento: document.getElementById('avae_exento'),
@@ -44,31 +43,27 @@ document.addEventListener('DOMContentLoaded', function() {
         acao: document.getElementById('acao'),
         aveo: document.getElementById('aveo'),
         avee: document.getElementById('avee'),
-        acae: document.getElementById('acae'),
-        apae: document.getElementById('apae'),
         sumaTotal: document.getElementById('suma_total'),
-        avaoAvaeApaeAcae2: document.getElementById('avao_avae_apae_acae') 
+        avaoAvaeApaeAcae2: document.getElementById('avao_avae_apae_acae')
     };
 
-    // Botón de procesamiento
     const botonProcesar = document.getElementById('procesar-simulacion');
 
-    // Función para formatear valores monetarios
-    const formatCurrency = (value) => 
+    const formatCurrency = (value) =>
         value.toLocaleString('es-CO', { style: 'currency', currency: 'COP' });
 
-    // Función para convertir valor de input a número
-    const parseInputValue = (input) => parseFloat(input.value) || 0;
+    // Ahora tolera inputs que no existan (null) sin reventar
+    const parseInputValue = (input) => (input ? parseFloat(input.value) || 0 : 0);
 
     // Eventos para completar datos del cliente
     Object.keys(clientInputs).forEach(key => {
-        clientInputs[key].addEventListener('change', function() {
+        if (!clientInputs[key] || !clientDisplays[key]) return;
+        clientInputs[key].addEventListener('change', function () {
             clientDisplays[key].textContent = this.value;
         });
     });
 
-    // Función para procesar la simulación
-    botonProcesar.addEventListener('click', function() {
+    botonProcesar.addEventListener('click', function () {
         // Conversión de valores
         const values = {
             avaoExento: parseInputValue(valueInputs.avaoExento),
@@ -79,19 +74,18 @@ document.addEventListener('DOMContentLoaded', function() {
             avaeSinRetencion: parseInputValue(valueInputs.avaeSinRetencion),
             aveo: parseInputValue(valueInputs.aveo),
             avee: parseInputValue(valueInputs.avee),
-            apae: parseInputValue(valueInputs.apae),
             acae: parseInputValue(valueInputs.acae),
             acao: parseInputValue(valueInputs.acao)
         };
 
-        // Cálculos
+        // Cálculos (sin APAE)
         const totalAvao = values.avaoExento + values.avaoConRetencion + values.avaoSinRetencion;
         const totalAvae = values.avaeExento + values.avaeConRetencion + values.avaeSinRetencion;
         const sumaAvaoAvae = totalAvao + totalAvae;
         const sumaAcaoAveo = values.acao + values.aveo;
-        const avaoAvaeApaeAcae2 = values.avaoExento + totalAvae + values.apae + values.acae;
-        const totalAvaoAvaeApaeAcae = sumaAvaoAvae + values.apae + values.acae;
-        const sumaTotal = sumaAvaoAvae + sumaAcaoAveo + values.apae + values.acae + values.avee;
+        const avaoAvaeApaeAcae2 = values.avaoExento + totalAvae + values.acae;
+        const totalAvaoAvaeApaeAcae = sumaAvaoAvae + values.acae;
+        const sumaTotal = sumaAvaoAvae + sumaAcaoAveo + values.acae + values.avee;
         const aveeTotal = values.avee + values.acae;
 
         // Asignación de valores a los spans
@@ -108,7 +102,6 @@ document.addEventListener('DOMContentLoaded', function() {
             acao: values.acao,
             aveo: values.aveo,
             avee: aveeTotal,
-            apae: values.apae,
             sumaTotal,
             avaoAvaeApaeAcae2
         }).forEach(([key, value]) => {
@@ -117,15 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // ============================
-        // EXPONER RESULTADOS CRUDOS
-        // ============================
-        // Guardamos los mismos valores numéricos ya calculados arriba (sin
-        // formatear y sin volver a calcular nada) para que otros scripts,
-        // como AsistenteCorreos.js, puedan generar las plantillas de correo
-        // usando exactamente estas cifras. Esto evita tener que "parsear"
-        // el texto ya formateado en pesos (riesgo de errores de redondeo)
-        // o duplicar fórmulas en otro archivo.
+        // Resultados crudos para AsistenteCorreos.js
         window.SimulacionResultados = {
             avaoExento: values.avaoExento,
             avaeExento: values.avaeExento,
@@ -138,11 +123,10 @@ document.addEventListener('DOMContentLoaded', function() {
             acao: values.acao,
             aveo: values.aveo,
             avee: aveeTotal,
-            apae: values.apae,
             acae: values.acae,
             sumaTotal,
-            avaoAvaeApaeAcae2,      // "Total Parcial Disponible" (columna izquierda)
-            totalAvaoAvaeApaeAcae   // "Saldo con Retención y Penalidad" (columna derecha / retiro total)
+            avaoAvaeApaeAcae2,
+            totalAvaoAvaeApaeAcae
         };
     });
 });
