@@ -77,7 +77,7 @@ Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 Recuerda que:
 
 * El saldo ordinario exento lo puede retirar una sola vez por año calendario.
-* El saldo extraordinario lo puede retirar una vez por semestre.
+* El saldo extraordinario lo puede retirar una vez cada seis meses.
 * Realizar un retiro parcial no afecta su permanencia en el fondo.
 
 Si desea realizar un retiro parcial, por favor confirme su decisión indicando el valor a retirar y le enviaré el formato con el cual se solicita la autorización a la empresa.
@@ -98,9 +98,11 @@ Cordial saludo.`;
         const saldoExento = datos.avaoExento;               // Ordinarios - Saldo Exento
         const saldoConRetencion = saldoTotalParcial - saldoExento;
         const aveo = datos.aveo; // Valor no consolidado
+        const acao = datos.acao; // Saldo consolidado empresa (ACAO)
+        const avee = datos.avee; // Acciones (AVEE)
         const saldoTotal = datos.totalAvaoAvaeApaeAcae;     // "Saldo con Retención y Penalidad"
 
-        return `${saludo} Señor(a) ${nombre}, espero se encuentre bien.
+    return `${saludo} Señor(a) ${nombre}, espero se encuentre bien.
 
 Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 
@@ -110,15 +112,15 @@ Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 
 * Quedará penalizado(a) por 1 año, durante el cual no podrá ahorrar en el Fondo.
 * Si lleva menos de 10 años ahorrando en el Fondo, perderá los aportes no consolidados que la empresa ha realizado en su nombre y que actualmente asciende a ${formatCurrency(aveo)}.
-* El saldo consolidado a nombre de la empresa es con fines pensionales y solo se puede retirar al momento de pensionarte.
-* El valor correspondiente a acciones solo se puede retirar una vez finalice su relación laboral con la compañía, si la empresa lo autoriza.
+* El saldo consolidado a nombre de la empresa, que actualmente asciende a ${formatCurrency(acao)}, es con fines pensionales y solo se puede retirar al momento de pensionarte.
+* El valor correspondiente a acciones, que actualmente asciende a ${formatCurrency(avee)}, solo se puede retirar una vez finalice su relación laboral con la compañía, si la empresa lo autoriza.
 
 Si desea realizar retiro parcial o total, por favor confirme su decisión (Para retiro parcial requiero el valor a retirar) y le enviaré el formato con el cual se solicita la autorización a la empresa.
 
 Quedo atento(a) a cualquier duda que tenga al respecto.
 
 Cordial saludo.`;
-    }
+}
 
 // ---- CORREO AFILIADO MENOS DE 10 AÑOS ----
 function plantillaCorreAfi10A() {
@@ -130,8 +132,10 @@ function plantillaCorreAfi10A() {
 
     const saldoTotal = datos.totalAvaoAvaeApaeAcae;
     const aveo = datos.aveo; // Valor no consolidado
+    const acao = datos.acao; // Saldo consolidado empresa (ACAO)
+    const avee = datos.avee; // Acciones (AVEE)
 
-    return `${saludo} Señor(a) ${nombre}, espero se encuentre bien.
+return `${saludo} Señor(a) ${nombre}, espero se encuentre bien.
 
 Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 
@@ -141,8 +145,8 @@ Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 
 * Quedará penalizado(a) por 1 año, durante el cual no podrá ahorrar en el Fondo.
 * Si lleva menos de 10 años ahorrando en el Fondo, perderá los aportes no consolidados que la empresa ha realizado en su nombre y que actualmente asciende a ${formatCurrency(aveo)}.
-* El saldo consolidado a nombre de la empresa es con fines pensionales y solo se puede retirar al momento de pensionarte.
-* El valor correspondiente a acciones solo se puede retirar una vez finalice su relación laboral con la compañía, si la empresa lo autoriza.
+* El saldo consolidado a nombre de la empresa, que actualmente asciende a ${formatCurrency(acao)}, es con fines pensionales y solo se puede retirar al momento de pensionarte.
+* El valor correspondiente a acciones, que actualmente asciende a ${formatCurrency(avee)}, solo se puede retirar una vez finalice su relación laboral con la compañía, si la empresa lo autoriza.
 
 Si desea realizar retiro parcial o total, por favor confirme su decisión (Para retiro parcial requiero el valor a retirar) y le enviaré el formato con el cual se solicita la autorización a la empresa.
 
@@ -151,11 +155,47 @@ Quedo atento(a) a cualquier duda que tenga al respecto.
 Cordial saludo.`;
 }
 
+    // ---- RETIRO POR DESVINCULACIÓN LABORAL ----
+    function plantillaDesvinculacion() {
+        const datos = obtenerDatosSimulacion();
+        if (!datos) return null;
+
+        const saludo = obtenerSaludoHora();
+        const nombre = obtenerNombreCliente();
+        const aportesPropios = datos.totalAvao;   // Ordinarios (AVAO)
+        const aportesExtra = datos.totalAvae;     // Extraordinarios (AVAE)
+        const avee = datos.avee;                  // Acciones (AVEE)
+        const acao = datos.acao;                  // Consolidado empleador (ACAO)
+        const aveo = datos.aveo;                  // No consolidado empleador (AVEO)
+
+        return `${saludo} Señor(a) ${nombre}, espero se encuentre bien.
+
+Adjunto envío la simulación donde podemos evidenciar lo siguiente:
+
+- Por desvinculación laboral, usted podrá retirar lo siguiente:
+
+* Sus aportes propios, que actualmente ascienden a ${formatCurrency(aportesPropios)}.
+* Sus aportes extraordinarios, que actualmente ascienden a ${formatCurrency(aportesExtra)}.
+* El valor correspondiente a acciones, que actualmente asciende a ${formatCurrency(avee)}, siempre y cuando la empresa lo autorice.
+
+- Respecto a los aportes realizados por la empresa:
+
+* Los aportes consolidados, que actualmente ascienden a ${formatCurrency(acao)}, permanecerán en el Fondo hasta el momento de su pensión.
+* Los aportes no consolidados, que actualmente ascienden a ${formatCurrency(aveo)}, serán devueltos a la empresa patrocinadora.
+
+Si desea realizar el retiro, por favor confirme su decisión y le enviaré el formato con el cual se solicita la autorización a la empresa.
+
+Quedo atento(a) a cualquier duda que tenga al respecto.
+
+Cordial saludo.`;
+    }
+
     // Registro central de plantillas disponibles. Agregar nuevas aquí.
     const plantillas = {
         parcial: { etiqueta: "Correo Retiro Parcial", generar: plantillaRetiroParcial },
         total: { etiqueta: "Correo Retiro Total", generar: plantillaRetiroTotal },
-        correAfi10A: { etiqueta: "Correo Afi -10 A", generar: plantillaCorreAfi10A }
+        correAfi10A: { etiqueta: "Correo Afi -10 A", generar: plantillaCorreAfi10A },
+        desvinculacion: { etiqueta: "Correo Desvinculación Laboral", generar: plantillaDesvinculacion }
     };
 
     // ==========================================================================
