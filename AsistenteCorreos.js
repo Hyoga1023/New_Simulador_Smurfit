@@ -192,9 +192,9 @@ Cordial saludo.`;
 
     // Registro central de plantillas disponibles. Agregar nuevas aquí.
     const plantillas = {
+        correAfi10A: { etiqueta: "Correo Afi -10 A", generar: plantillaCorreAfi10A },
         parcial: { etiqueta: "Correo Retiro Parcial", generar: plantillaRetiroParcial },
         total: { etiqueta: "Correo Retiro Total", generar: plantillaRetiroTotal },
-        correAfi10A: { etiqueta: "Correo Afi -10 A", generar: plantillaCorreAfi10A },
         desvinculacion: { etiqueta: "Correo Desvinculación Laboral", generar: plantillaDesvinculacion }
     };
 
