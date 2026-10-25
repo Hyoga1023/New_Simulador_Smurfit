@@ -97,7 +97,7 @@ Cordial saludo.`;
         const saldoTotalParcial = datos.avaoAvaeApaeAcae2; // "Total Parcial Disponible"
         const saldoExento = datos.avaoExento;               // Ordinarios - Saldo Exento
         const saldoConRetencion = saldoTotalParcial - saldoExento;
-        const aveo = datos.aveo; // Valor no consolidado
+        const aveo = datos.aveo; // Valor no consolidado (AVEO)
         const acao = datos.acao; // Saldo consolidado empresa (ACAO)
         const avee = datos.avee; // Acciones (AVEE)
         const saldoTotal = datos.totalAvaoAvaeApaeAcae;     // "Saldo con Retención y Penalidad"
