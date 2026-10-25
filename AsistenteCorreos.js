@@ -113,7 +113,7 @@ Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 * Quedará penalizado(a) por 1 año, durante el cual no podrá ahorrar en el Fondo.
 * Si lleva menos de 10 años ahorrando en el Fondo, perderá los aportes no consolidados que la empresa ha realizado en su nombre y que actualmente asciende a ${formatCurrency(aveo)}.
 * El saldo consolidado a nombre de la empresa, que actualmente asciende a ${formatCurrency(acao)}, es con fines pensionales y solo se puede retirar al momento de pensionarte.
-* El valor correspondiente a acciones, que actualmente asciende a ${formatCurrency(avee)}, solo se puede retirar una vez finalice su relación laboral con la compañía, si la empresa lo autoriza.
+* El valor correspondiente a las acciones, que actualmente asciende a ${formatCurrency(avee)}, solo se puede retirar una vez finalice su relación laboral con la compañía, si la empresa lo autoriza.
 
 Si desea realizar retiro parcial o total, por favor confirme su decisión (Para retiro parcial requiero el valor a retirar) y le enviaré el formato con el cual se solicita la autorización a la empresa.
 
@@ -146,7 +146,7 @@ Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 * Quedará penalizado(a) por 1 año, durante el cual no podrá ahorrar en el Fondo.
 * Si lleva menos de 10 años ahorrando en el Fondo, perderá los aportes no consolidados que la empresa ha realizado en su nombre y que actualmente asciende a ${formatCurrency(aveo)}.
 * El saldo consolidado a nombre de la empresa, que actualmente asciende a ${formatCurrency(acao)}, es con fines pensionales y solo se puede retirar al momento de pensionarte.
-* El valor correspondiente a acciones, que actualmente asciende a ${formatCurrency(avee)}, solo se puede retirar una vez finalice su relación laboral con la compañía, si la empresa lo autoriza.
+* El valor correspondiente a las acciones, que actualmente asciende a ${formatCurrency(avee)}, solo se puede retirar una vez finalice su relación laboral con la compañía, si la empresa lo autoriza.
 
 Si desea realizar retiro parcial o total, por favor confirme su decisión (Para retiro parcial requiero el valor a retirar) y le enviaré el formato con el cual se solicita la autorización a la empresa.
 
@@ -176,7 +176,7 @@ Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 
 * Sus aportes propios, que actualmente ascienden a ${formatCurrency(aportesPropios)}.
 * Sus aportes extraordinarios, que actualmente ascienden a ${formatCurrency(aportesExtra)}.
-* El valor correspondiente a acciones, que actualmente asciende a ${formatCurrency(avee)}, siempre y cuando la empresa lo autorice.
+* El valor correspondiente a las acciones, que actualmente asciende a ${formatCurrency(avee)}, siempre y cuando la empresa lo autorice.
 
 - Respecto a los aportes realizados por la empresa:
 

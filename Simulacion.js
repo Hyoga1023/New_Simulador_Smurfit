@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fecha_antiguedad: document.getElementById('fecha_antiguedad-mostrar')
     };
 
-    // Inputs de valores (APAE eliminado)
+    // Inputs de valores
     const valueInputs = {
         avaoExento: document.getElementById('span-avao_exento'),
         avaoConRetencion: document.getElementById('span-avao_con_retencion'),
@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         avaeSinRetencion: document.getElementById('span-avae_sin_retención'),
         aveo: document.getElementById('span-aveo'),
         avee: document.getElementById('span-avee'),
+        apae: document.getElementById('span-apae'),
         acae: document.getElementById('span-acae'),
         acao: document.getElementById('span-acao')
     };
@@ -74,19 +75,24 @@ document.addEventListener('DOMContentLoaded', function () {
             avaeSinRetencion: parseInputValue(valueInputs.avaeSinRetencion),
             aveo: parseInputValue(valueInputs.aveo),
             avee: parseInputValue(valueInputs.avee),
+            apae: parseInputValue(valueInputs.apae),
             acae: parseInputValue(valueInputs.acae),
             acao: parseInputValue(valueInputs.acao)
         };
 
-        // Cálculos (sin APAE)
+        // Cálculos
+        // APAE no se muestra por separado: se suma internamente al ACAE
+        // y de aquí en adelante TODO usa "acaeGlobal".
+        const acaeGlobal = values.acae + values.apae;
+
         const totalAvao = values.avaoExento + values.avaoConRetencion + values.avaoSinRetencion;
         const totalAvae = values.avaeExento + values.avaeConRetencion + values.avaeSinRetencion;
         const sumaAvaoAvae = totalAvao + totalAvae;
         const sumaAcaoAveo = values.acao + values.aveo;
-        const avaoAvaeApaeAcae2 = values.avaoExento + totalAvae + values.acae;
-        const totalAvaoAvaeApaeAcae = sumaAvaoAvae + values.acae;
-        const sumaTotal = sumaAvaoAvae + sumaAcaoAveo + values.acae + values.avee;
-        const aveeTotal = values.avee + values.acae;
+        const avaoAvaeApaeAcae2 = values.avaoExento + totalAvae + acaeGlobal;
+        const totalAvaoAvaeApaeAcae = sumaAvaoAvae + acaeGlobal;
+        const sumaTotal = sumaAvaoAvae + sumaAcaoAveo + acaeGlobal + values.avee;
+        const aveeTotal = values.avee + acaeGlobal;
 
         // Asignación de valores a los spans
         Object.entries({
@@ -123,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
             acao: values.acao,
             aveo: values.aveo,
             avee: aveeTotal,
-            acae: values.acae,
+            acae: acaeGlobal,
             sumaTotal,
             avaoAvaeApaeAcae2,
             totalAvaoAvaeApaeAcae
