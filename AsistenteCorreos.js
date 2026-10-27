@@ -102,7 +102,7 @@ Cordial saludo.`;
         const avee = datos.avee; // Acciones (AVEE)
         const saldoTotal = datos.totalAvaoAvaeApaeAcae;     // "Saldo con Retención y Penalidad"
 
-        return `${saludo} Señor(a) ${nombre}, espero se encuentre bien.
+    return `${saludo} Señor(a) ${nombre}, espero se encuentre bien.
 
 Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 
@@ -135,7 +135,7 @@ Cordial saludo.`;
         const acao = datos.acao; // Saldo consolidado empresa (ACAO)
         const avee = datos.avee; // Acciones (AVEE)
 
-        return `${saludo} Señor(a) ${nombre}, espero se encuentre bien.
+    return `${saludo} Señor(a) ${nombre}, espero se encuentre bien.
 
 Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 
