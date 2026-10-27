@@ -74,7 +74,7 @@ Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 
 - Para retiro parcial, actualmente tiene un saldo de ${formatCurrency(saldoTotalParcial)}, de los cuales están exentos hasta ${formatCurrency(saldoExento)}. Para el resto, es decir ${formatCurrency(saldoConRetencion)}, aplican las retenciones correspondientes según el tipo de aporte.
 
-Recuerda que:
+Recuerde que:
 
 * El saldo ordinario exento lo puede retirar una sola vez por año calendario.
 * El saldo extraordinario lo puede retirar una vez cada seis meses.
@@ -102,7 +102,7 @@ Cordial saludo.`;
         const avee = datos.avee; // Acciones (AVEE)
         const saldoTotal = datos.totalAvaoAvaeApaeAcae;     // "Saldo con Retención y Penalidad"
 
-    return `${saludo} Señor(a) ${nombre}, espero se encuentre bien.
+        return `${saludo} Señor(a) ${nombre}, espero se encuentre bien.
 
 Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 
@@ -112,7 +112,7 @@ Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 
 * Quedará penalizado(a) por 1 año, durante el cual no podrá ahorrar en el Fondo.
 * Si lleva menos de 10 años ahorrando en el Fondo, perderá los aportes no consolidados que la empresa ha realizado en su nombre y que actualmente asciende a ${formatCurrency(aveo)}.
-* El saldo consolidado a nombre de la empresa, que actualmente asciende a ${formatCurrency(acao)}, es con fines pensionales y solo se puede retirar al momento de pensionarte.
+* El saldo consolidado a nombre de la empresa, que actualmente asciende a ${formatCurrency(acao)}, es con fines pensionales y solo se puede retirar al momento de pensionarse.
 * El valor correspondiente a las acciones, que actualmente asciende a ${formatCurrency(avee)}, solo se puede retirar una vez finalice su relación laboral con la compañía, si la empresa lo autoriza.
 
 Si desea realizar retiro parcial o total, por favor confirme su decisión (Para retiro parcial requiero el valor a retirar) y le enviaré el formato con el cual se solicita la autorización a la empresa.
@@ -120,22 +120,22 @@ Si desea realizar retiro parcial o total, por favor confirme su decisión (Para 
 Quedo atento(a) a cualquier duda que tenga al respecto.
 
 Cordial saludo.`;
-}
+    }
 
-// ---- CORREO AFILIADO MENOS DE 10 AÑOS ----
-function plantillaCorreAfi10A() {
-    const datos = obtenerDatosSimulacion();
-    if (!datos) return null;
+    // ---- CORREO AFILIADO MENOS DE 10 AÑOS ----
+    function plantillaCorreAfi10A() {
+        const datos = obtenerDatosSimulacion();
+        if (!datos) return null;
 
-    const saludo = obtenerSaludoHora();
-    const nombre = obtenerNombreCliente();
+        const saludo = obtenerSaludoHora();
+        const nombre = obtenerNombreCliente();
 
-    const saldoTotal = datos.totalAvaoAvaeApaeAcae;
-    const aveo = datos.aveo; // Valor no consolidado
-    const acao = datos.acao; // Saldo consolidado empresa (ACAO)
-    const avee = datos.avee; // Acciones (AVEE)
+        const saldoTotal = datos.totalAvaoAvaeApaeAcae;
+        const aveo = datos.aveo; // Valor no consolidado
+        const acao = datos.acao; // Saldo consolidado empresa (ACAO)
+        const avee = datos.avee; // Acciones (AVEE)
 
-return `${saludo} Señor(a) ${nombre}, espero se encuentre bien.
+        return `${saludo} Señor(a) ${nombre}, espero se encuentre bien.
 
 Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 
@@ -145,7 +145,7 @@ Adjunto envío la simulación donde podemos evidenciar lo siguiente:
 
 * Quedará penalizado(a) por 1 año, durante el cual no podrá ahorrar en el Fondo.
 * Si lleva menos de 10 años ahorrando en el Fondo, perderá los aportes no consolidados que la empresa ha realizado en su nombre y que actualmente asciende a ${formatCurrency(aveo)}.
-* El saldo consolidado a nombre de la empresa, que actualmente asciende a ${formatCurrency(acao)}, es con fines pensionales y solo se puede retirar al momento de pensionarte.
+* El saldo consolidado a nombre de la empresa, que actualmente asciende a ${formatCurrency(acao)}, es con fines pensionales y solo se puede retirar al momento de pensionarse.
 * El valor correspondiente a las acciones, que actualmente asciende a ${formatCurrency(avee)}, solo se puede retirar una vez finalice su relación laboral con la compañía, si la empresa lo autoriza.
 
 Si desea realizar retiro parcial o total, por favor confirme su decisión (Para retiro parcial requiero el valor a retirar) y le enviaré el formato con el cual se solicita la autorización a la empresa.
@@ -153,7 +153,7 @@ Si desea realizar retiro parcial o total, por favor confirme su decisión (Para 
 Quedo atento(a) a cualquier duda que tenga al respecto.
 
 Cordial saludo.`;
-}
+    }
 
     // ---- RETIRO POR DESVINCULACIÓN LABORAL ----
     function plantillaDesvinculacion() {

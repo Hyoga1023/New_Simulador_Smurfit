@@ -44,6 +44,9 @@ document.addEventListener('DOMContentLoaded', function () {
         acao: document.getElementById('acao'),
         aveo: document.getElementById('aveo'),
         avee: document.getElementById('avee'),
+        // Opcional: si algún día agregas <span id="acae"></span> en el HTML,
+        // se pinta solo. Si no existe, se ignora sin generar errores.
+        acae: document.getElementById('acae'),
         sumaTotal: document.getElementById('suma_total'),
         avaoAvaeApaeAcae2: document.getElementById('avao_avae_apae_acae')
     };
@@ -53,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const formatCurrency = (value) =>
         value.toLocaleString('es-CO', { style: 'currency', currency: 'COP' });
 
-    // Ahora tolera inputs que no existan (null) sin reventar
+    // Tolera inputs que no existan (null) sin reventar
     const parseInputValue = (input) => (input ? parseFloat(input.value) || 0 : 0);
 
     // Eventos para completar datos del cliente
@@ -83,6 +86,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // Cálculos
         // APAE no se muestra por separado: se suma internamente al ACAE
         // y de aquí en adelante TODO usa "acaeGlobal".
+        // OJO: el ACAE (con el APAE) es disponible en retiro parcial, por lo
+        // tanto NO se mezcla con el AVEE (acciones), que solo se puede retirar
+        // al terminar la relación laboral.
         const acaeGlobal = values.acae + values.apae;
 
         const totalAvao = values.avaoExento + values.avaoConRetencion + values.avaoSinRetencion;
@@ -92,7 +98,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const avaoAvaeApaeAcae2 = values.avaoExento + totalAvae + acaeGlobal;
         const totalAvaoAvaeApaeAcae = sumaAvaoAvae + acaeGlobal;
         const sumaTotal = sumaAvaoAvae + sumaAcaoAveo + acaeGlobal + values.avee;
-        const aveeTotal = values.avee + acaeGlobal;
 
         // Asignación de valores a los spans
         Object.entries({
@@ -107,7 +112,8 @@ document.addEventListener('DOMContentLoaded', function () {
             sumaAcaoAveo,
             acao: values.acao,
             aveo: values.aveo,
-            avee: aveeTotal,
+            avee: values.avee,
+            acae: acaeGlobal,
             sumaTotal,
             avaoAvaeApaeAcae2
         }).forEach(([key, value]) => {
@@ -128,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
             sumaAcaoAveo,
             acao: values.acao,
             aveo: values.aveo,
-            avee: aveeTotal,
+            avee: values.avee,
             acae: acaeGlobal,
             sumaTotal,
             avaoAvaeApaeAcae2,

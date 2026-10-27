@@ -13,6 +13,7 @@
   --line: #d7dbdf;
   --line-strong: #9ca0a3;
   --amber: #daae69;
+  --amber2:rgb(95, 69, 21);
   --amber-bg: #FBF3E7;
   --rojo: #E21D0F;
 
@@ -341,7 +342,7 @@ flex: 1;
 h4 + .conjunto#avao_avae_apae_acae,
 .conjunto:has(#avao_avae_apae_acae) {
   background-color: var(--amber-bg);
-  border: 1px solid var(--amber);
+  border: 1px solid var(--amber2);
   border-radius: 8px;
   padding: 10px 14px;
   margin-top: 6px;
@@ -349,7 +350,7 @@ h4 + .conjunto#avao_avae_apae_acae,
 
 .conjunto:has(#avao_avae_apae_acae) .etiquetas,
 .conjunto:has(#avao_avae_apae_acae) .valores_calculos {
-  color: var(--amber);
+  color: var(--amber2);
   font-weight: 700;
 }
 
@@ -727,7 +728,7 @@ input.input[type="text"] {
 }
 
 .tipo_aportes p[style] {
-  color: var(--amber) !important;
+  color: var(--amber2) !important;
   background-color: var(--amber-bg);
   padding: 10px 12px;
   border-radius: 8px;
